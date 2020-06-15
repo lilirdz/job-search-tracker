@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  company: MyString
+  link: MyString
+  applied: false
+  poc: MyString
+  interview: 2020-06-15 15:32:25
+  interviewer: MyString
+  rejected: false
+  offer: false
+  accepted_offer: false
+
+two:
+  title: MyString
+  company: MyString
+  link: MyString
+  applied: false
+  poc: MyString
+  interview: 2020-06-15 15:32:25
+  interviewer: MyString
+  rejected: false
+  offer: false
+  accepted_offer: false
