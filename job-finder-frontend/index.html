@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Flatiron Job Search Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <script defer src="./src/index.js"></script>
+    </header>
+
+    <main>
+      <div class="page-banner">
+        <img
+          class="flatiron-logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/6/61/FS_wiki.png"
+        />
+        <h2>Job Search Tracker</h2>
+        <div>
+          <button id="application-btn">New Job Application</button>
+        </div>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="new-application-form">
+              <label>
+                Add a new job application to your job search tracker</label
+              >
+              <!-- <label> Only job title and company are required </label> -->
+
+              <br />
+              <!-- <label for="job-title"> Job Title * </label>-->
+              <input
+                type="text"
+                id="job-title"
+                placeholder="Job Title *"
+              /><br />
+              <!-- <label for="company"> Company * </label>-->
+              <input type="text" id="company" placeholder="Company *" /><br />
+              <!--<label for="application-link"> Application link </label>-->
+              <input
+                type="text"
+                id="application-link"
+                placeholder="Application link"
+              /><br />
+              <!--<label for="poc"> Point of Contact </label>-->
+              <input
+                type="text"
+                id="poc"
+                placeholder="Point of Contact"
+              /><br />
+              <!--<label for="interview-date"> Interview Date </label>-->
+              <input
+                type="text"
+                id="interview-date"
+                placeholder="Interview Date"
+              /><br />
+              <!--<label for="interviewer"> Interviewer </label>-->
+              <input
+                type="text"
+                id="interviewer"
+                placeholder="Interviewer"
+              /><br />
+              <input type="submit" placeholder="Submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Add our HTML -->
+
+      <div class="spreadsheet-div">
+        <table class="spreadsheet-table">
+          <tr class="header-row">
+            <th>Job Title</th>
+            <th>Company</th>
+            <th>Application Link</th>
+            <th>Applied?</th>
+            <th>Person Of Contact</th>
+            <th>Interview Date</th>
+            <th>Interviewer</th>
+            <th>Rejected?</th>
+            <th>Received Offer?</th>
+            <th>Accepted Offer?</th>
+            <th></th>
+          </tr>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
