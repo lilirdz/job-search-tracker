@@ -28,13 +28,12 @@ function showApplication(application) {
   link.innerHTML = application.link;
   link.contentEditable = "true";
   const applied = document.createElement("td");
-  applied.innerHTML = application.applied;
-  applied.contentEditable = "true";
   if (application.applied == true) {
     applied.classList.add("true");
   } else {
     applied.classList.add("false");
   }
+ addDropdown(applied)
   const poc = document.createElement("td");
   poc.innerHTML = application.poc;
   poc.contentEditable = "true";
@@ -45,29 +44,30 @@ function showApplication(application) {
   interviewer.innerHTML = application.interviewer;
   interviewer.contentEditable = "true";
   const rejected = document.createElement("td");
-  rejected.innerHTML = application.rejected;
   rejected.contentEditable = "true";
   if (application.rejected == true) {
     rejected.classList.add("true");
   } else {
     rejected.classList.add("false");
   }
+  addDropdown(rejected)
   const received_offer = document.createElement("td");
-  received_offer.innerHTML = application.received_offer;
   received_offer.contentEditable = "true";
   if (application.received_offer == true) {
     received_offer.classList.add("true");
   } else {
     received_offer.classList.add("false");
   }
+  addDropdown(received_offer)
   const accepted_offer = document.createElement("td");
-  accepted_offer.innerHTML = application.accepted_offer;
   accepted_offer.contentEditable = "true";
   if (application.accepted_offer == true) {
     accepted_offer.classList.add("true");
   } else {
     accepted_offer.classList.add("false");
+
   }
+  addDropdown(accepted_offer)
   // const editBtn = document.createElement('button')
   const deleteBtn = document.createElement("button");
   deleteBtn.dataset.applicationId = application.id;
@@ -85,6 +85,8 @@ function showApplication(application) {
       e.target.parentNode.remove();
     });
   });
+
+  
   newRow.append(
     title,
     company,
@@ -99,6 +101,22 @@ function showApplication(application) {
     deleteBtn
   );
   document.querySelector(".spreadsheet-table").append(newRow);
+}
+function addDropdown(tag){
+    const selectTF = document.createElement('select')
+    const yes = document.createElement('option')
+    yes.classList.add('yes-dropdown')
+    yes.value = 'yes'
+    yes.innerHTML = 'yes'
+    const no = document.createElement('option')
+    no.classList.add('no-dropdown')
+
+    no.value = 'no'
+    no.innerHTML = 'no'
+  
+    selectTF.append(no,yes)
+  
+    tag.append(selectTF)
 }
 
 const newApplication = document.querySelector("form");
