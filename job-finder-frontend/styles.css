@@ -40,7 +40,8 @@ table .header-row {
   background-color: #515259;
 }
 body {
-  background-color: #04b2d9;
+  /* background-color: #04b2d9; */
+  background-color: white;
   font-family: "Poppins", sans-serif;
 }
 
@@ -73,6 +74,35 @@ body {
   top: 1px;
 }
 
+#application-btn:focus {
+  outline: none;
+}
+
+input {
+  /* padding: 10px 60px; */
+  margin: 3px;
+  /* padding-right: 60px; */
+}
+
+input[type="text"] {
+  /* padding: 10px 60px; */
+  font-size: large;
+  text-align: left;
+  width: 30%;
+  height: 30px;
+}
+
+input[type="submit"] {
+  width: 10%;
+  height: 30px;
+  font-size: medium;
+  text-align: center;
+  background-color: #50c878;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -90,10 +120,12 @@ body {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
+  text-align: center;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 60%; /* Could be more or less, depending on screen size */
+  height: 50%;
 }
 
 /* The Close Button */

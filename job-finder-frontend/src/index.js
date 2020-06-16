@@ -5,6 +5,22 @@ function myFetch(url, options = {}) {
   return fetch(url, options).then((res) => res.json());
 }
 
+myFetch(`${userUrl}/1`).then((user) => {
+  showUser(user);
+});
+
+function showUser(user) {
+  const username = document.querySelector("#username");
+  username.textContent = `Hello ${user.name}!`;
+
+  const status = document.querySelector("#status");
+  status.textContent = `Status: ${user.status}`;
+
+  // const pageBanner = document.querySelector(".page-banner");
+
+  // pageBanner.append(username, status);
+}
+
 myFetch(url).then((applications) => {
   for (const application of applications) {
     showApplication(application);
@@ -12,10 +28,6 @@ myFetch(url).then((applications) => {
 });
 
 function showApplication(application) {
-  // t.boolean "applied"
-  // t.boolean "rejected"
-  // t.boolean "received_offer"
-  // t.boolean "accepted_offer"
   const newRow = document.createElement("tr");
   // newRow.dataset.applicationId = application.id;
   const title = document.createElement("td");
