@@ -24,6 +24,10 @@ img {
   }
 }
 
+label {
+  font-size: small;
+}
+
 select .yes-dropdown {
 }
 select .no-dropdown {

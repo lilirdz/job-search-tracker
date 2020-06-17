@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_203225) do
+ActiveRecord::Schema.define(version: 2020_06_17_170155) do
 
   create_table "applications", force: :cascade do |t|
     t.string "title"
     t.string "company"
     t.string "link"
-    t.boolean "applied"
+    t.string "applied"
     t.string "poc"
     t.string "interview_date"
     t.string "interviewer"
-    t.boolean "rejected"
-    t.boolean "received_offer"
-    t.boolean "accepted_offer"
+    t.string "rejected"
+    t.string "received_offer"
+    t.string "accepted_offer"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_203225) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "status"
+    t.string "status", default: "Actively Looking"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

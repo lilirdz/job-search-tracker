@@ -1,18 +1,53 @@
 const userUrl = "http://localhost:3000/users";
-
+logInUser();
 function myFetch(url, options = {}) {
   return fetch(url, options).then((res) => res.json());
 }
+function logInUser() {
+  const logInForm = document.createElement("form");
+  logInForm.classList.add("initial-log-in-form");
+  const welcomeP = document.createElement("p");
+  const enterNameLabel = document.createElement("label");
+  enterNameLabel.innerHTML =
+    "Enter your name and we'll pull up your job search tracker. If you're new, we'll get you started.";
+  enterNameLabel.setAttribute("for", "username");
+  const typeInName = document.createElement("input");
+  typeInName.classList.add("entered-name");
+  typeInName.setAttribute("type", "text");
+  typeInName.setAttribute("id", "username");
+  const submitName = document.createElement("input");
+  submitName.setAttribute("type", "submit");
+  submitName.setAttribute("value", "Submit");
+  logInForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = document.querySelector("#username");
+    const status = document.querySelector("#status");
+    const findName = document.querySelector(".entered-name").value;
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: findName,
+      }),
+    };
 
-myFetch(`${userUrl}/1`).then((user) => {
-  showUser(user);
-  myFetch(url).then((applications) => {
-    for (const application of applications) {
-      showApplication(application);
-    }
+    myFetch(userUrl, options).then((user) => {
+      showUser(user);
+      console.log(user);
+      //   myFetch(url).then((applications) => {
+      //     for (const application of applications) {
+      //       showApplication(application);
+      //     }
+      //   });
+    });
   });
-});
 
+  logInForm.append(welcomeP, enterNameLabel, typeInName, submitName);
+  document.querySelector("h2").append(logInForm);
+}
 function showUser(user) {
   const username = document.querySelector("#username");
   username.textContent = `Hello ${user.name}!`;
@@ -25,8 +60,6 @@ function showUser(user) {
     e.preventDefault();
     const updateName = document.querySelector("#user-name-change").value;
     const updateStatus = document.querySelector("#user-status-change").value;
-    console.log(updateName);
-    console.log(updateStatus);
     const patchOptions = {
       method: "PATCH",
       headers: {

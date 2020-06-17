@@ -4,13 +4,13 @@ class CreateApplications < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :company
       t.string :link
-      t.boolean :applied
+      t.string :applied
       t.string :poc
       t.string :interview_date
       t.string :interviewer
-      t.boolean :rejected
-      t.boolean :received_offer
-      t.boolean :accepted_offer
+      t.string :rejected
+      t.string :received_offer
+      t.string :accepted_offer
       t.integer :user_id
 
       t.timestamps
