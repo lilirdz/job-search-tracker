@@ -15,99 +15,104 @@
     <header></header>
 
     <main>
-      <!-- <div class="row">
-        <div class="column"> -->
-      <div class="page-banner">
-        <img
-          class="flatiron-logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/6/61/FS_wiki.png"
-        />
-        <h2>Job Search Tracker</h2>
-        <h3 id="username">Hello</h3>
-        <h4 id="status">Status</h4>
-        <div>
-          <button id="application-btn">New Job Application</button>
-        </div>
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h4>Add a new job application to your job search tracker</h4>
-            <form id="new-application-form">
-              <!-- <label> Only job title and company are required </label> -->
+      <div class="row">
+        <div class="column left">
+          <div class="page-banner">
+            <img
+              class="flatiron-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/6/61/FS_wiki.png"
+            />
+            <h2>Job Search Tracker</h2>
+            <h3 id="username">Hello</h3>
+            <h4 id="status">Status</h4>
+            <button id="application-btn">New Job Application</button>
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>Add a new job application to your job search tracker</h4>
+                <form id="new-application-form">
+                  <!-- <label> Only job title and company are required </label> -->
 
-              <!-- <br /> -->
-              <!-- <label for="job-title"> Job Title * </label>-->
-              <input
-                type="text"
-                id="job-title"
-                placeholder="Job Title *"
-              /><br />
-              <!-- <label for="company"> Company * </label>-->
-              <input type="text" id="company" placeholder="Company *" /><br />
-              <!--<label for="application-link"> Application link </label>-->
-              <input
-                type="text"
-                id="application-link"
-                placeholder="Application link"
-              /><br />
-              <!--<label for="poc"> Point of Contact </label>-->
-              <input
-                type="text"
-                id="poc"
-                placeholder="Point of Contact"
-              /><br />
-              <!--<label for="interview-date"> Interview Date </label>-->
-              <input
-                type="datetime-local"
-                id="interview-date"
-                placeholder="Interview Date"
-              /><br />
-              <!--<label for="interviewer"> Interviewer </label>-->
-              <input
-                type="text"
-                id="interviewer"
-                placeholder="Interviewer"
-              /><br />
-              <input type="submit" placeholder="Submit" />
-            </form>
+                  <!-- <br /> -->
+                  <input
+                    type="text"
+                    id="job-title"
+                    placeholder="Job Title *"
+                  /><br />
+                  <input
+                    type="text"
+                    id="company"
+                    placeholder="Company *"
+                  /><br />
+                  <input
+                    type="text"
+                    id="application-link"
+                    placeholder="Application link"
+                  /><br />
+                  <input
+                    type="text"
+                    id="poc"
+                    placeholder="Point of Contact"
+                  /><br />
+                  <input
+                    type="datetime-local"
+                    id="interview-date"
+                    placeholder="Interview Date"
+                  /><br />
+                  <input
+                    type="text"
+                    id="interviewer"
+                    placeholder="Interviewer"
+                  /><br />
+                  <input type="submit" placeholder="Submit" />
+                </form>
+              </div>
+            </div>
+            <br />
+            <button id="edit-btn">Edit Your Profile</button>
+            <div id="userModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>Update your Info Here</h4>
+                <form id="edit-user-form">
+                  <input
+                    type="text"
+                    id="user-name-change"
+                    placeholder="Name"
+                  /><br />
+                  <input
+                    type="text"
+                    id="user-status-change"
+                    placeholder="Status"
+                  /><br />
+                  <br />
+                  <input type="submit" placeholder="Submit" />
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-        <br />
-        <button id="edit-btn">Edit Your Profile</button>
-        <div id="userModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <h4>Update your Info Here</h4>
-            <form id="edit-user-form">
-              <input
-                type="text"
-                id="user-name-change"
-                placeholder="Name"
-              /><br />
-              <input type="text" id="user-status-change" placeholder="Status" /><br />
-              <br />
-              <input type="submit" placeholder="Submit" />
-            </form>
+        <!-- Add our HTML -->
+        <div class="column right">
+          <div class="spreadsheet-div">
+            <table class="spreadsheet-table">
+              <tr class="header-row">
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Application Link</th>
+                <th>Applied?</th>
+                <th>Person Of Contact</th>
+                <th>Interview Date</th>
+                <th>Interviewer</th>
+                <th>Rejected?</th>
+                <th>Received Offer?</th>
+                <th>Accepted Offer?</th>
+                <th></th>
+              </tr>
+            </table>
           </div>
-      </div>
-      <!-- Add our HTML -->
-
-      <div class="spreadsheet-div">
-        <table class="spreadsheet-table">
-          <tr class="header-row">
-            <th>Job Title</th>
-            <th>Company</th>
-            <th>Application Link</th>
-            <th>Applied?</th>
-            <th>Person Of Contact</th>
-            <th>Interview Date</th>
-            <th>Interviewer</th>
-            <th>Rejected?</th>
-            <th>Received Offer?</th>
-            <th>Accepted Offer?</th>
-            <th></th>
-          </tr>
-        </table>
+        </div>
+        <!-- row div -->
       </div>
     </main>
   </body>

@@ -176,3 +176,15 @@ h2 {
   text-decoration: none;
   cursor: pointer;
 }
+
+.column {
+  float: left;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}

@@ -3,6 +3,16 @@ logInUser();
 function myFetch(url, options = {}) {
   return fetch(url, options).then((res) => res.json());
 }
+
+//from Raul
+fetch("http://localhost:3000/users_signin", {
+  method: "POST",
+  headers: { "Content-Type": "application/json", Accept: "application/json" },
+  body: JSON.stringify({ name: "Bob" }),
+})
+  .then((res) => res.json())
+  .then(console.log);
+
 function logInUser() {
   const logInForm = document.createElement("form");
   logInForm.classList.add("initial-log-in-form");
