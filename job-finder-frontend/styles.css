@@ -14,21 +14,22 @@ img {
 }
 .delete-button:hover {
   animation: pop 0.3s linear 1;
-  background-color: red;
+  /* background-color: #d9534f; */
+  /* background-color: #ff5252; */
+  background-color: #ef7371;
 }
 @keyframes pop {
   50% {
     transform: scale(1.2);
   }
 }
-.spreadsheet-table {
-}
+
 select .yes-dropdown {
 }
 select .no-dropdown {
 }
 .true {
-  background-color: green;
+  background-color: #50c878;
 }
 .false {
   background-color: #515259;
@@ -47,6 +48,7 @@ td {
 }
 table {
   background-color: #afdff0;
+  box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.4);
 }
 table .header-row {
   background-color: #013241;
@@ -67,7 +69,8 @@ body {
   padding: 15px;
 }
 
-#application-btn {
+#application-btn,
+#edit-btn {
   background-color: #50c878;
   border-radius: 6px;
   border-style: none;
@@ -82,16 +85,22 @@ body {
   float: left;
   position: relative;
 }
-#application-btn:hover {
+#application-btn:hover,
+#edit-btn:hover {
   background-color: white;
   color: #50c878;
+  border-style: solid;
+  border-color: #50c878;
+  border-radius: 6px;
 }
-#application-btn:active {
+#application-btn:active,
+#edit-btn:active {
   position: relative;
   top: 1px;
 }
 
-#application-btn:focus {
+#application-btn:focus,
+#edit-btn:focus {
   outline: none;
 }
 
@@ -101,7 +110,8 @@ input {
   /* padding-right: 60px; */
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="datetime-local"] {
   /* padding: 10px 60px; */
   font-size: large;
   text-align: left;
@@ -145,7 +155,7 @@ h2 {
   padding: 20px;
   border: 1px solid #888;
   width: 60%; /* Could be more or less, depending on screen size */
-  height: 50%;
+  height: 70%;
 }
 
 /* The Close Button */

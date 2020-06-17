@@ -1,31 +1,8 @@
 const url = "http://localhost:3000/applications";
-const userUrl = "http://localhost:3000/users";
 
 function myFetch(url, options = {}) {
   return fetch(url, options).then((res) => res.json());
 }
-
-myFetch(`${userUrl}/1`).then((user) => {
-  showUser(user);
-});
-
-function showUser(user) {
-  const username = document.querySelector("#username");
-  username.textContent = `Hello ${user.name}!`;
-
-  const status = document.querySelector("#status");
-  status.textContent = `Status: ${user.status}`;
-
-  // const pageBanner = document.querySelector(".page-banner");
-
-  // pageBanner.append(username, status);
-}
-
-myFetch(url).then((applications) => {
-  for (const application of applications) {
-    showApplication(application);
-  }
-});
 
 function showApplication(application) {
   const newRow = document.createElement("tr");
@@ -45,7 +22,7 @@ function showApplication(application) {
   } else {
     applied.classList.add("false");
   }
- addDropdown(applied)
+  addDropdown(applied);
   const poc = document.createElement("td");
   poc.innerHTML = application.poc;
   poc.contentEditable = "true";
@@ -62,7 +39,7 @@ function showApplication(application) {
   } else {
     rejected.classList.add("false");
   }
-  addDropdown(rejected)
+  addDropdown(rejected);
   const received_offer = document.createElement("td");
   received_offer.contentEditable = "true";
   if (application.received_offer == true) {
@@ -70,16 +47,15 @@ function showApplication(application) {
   } else {
     received_offer.classList.add("false");
   }
-  addDropdown(received_offer)
+  addDropdown(received_offer);
   const accepted_offer = document.createElement("td");
   accepted_offer.contentEditable = "true";
   if (application.accepted_offer == true) {
     accepted_offer.classList.add("true");
   } else {
     accepted_offer.classList.add("false");
-
   }
-  addDropdown(accepted_offer)
+  addDropdown(accepted_offer);
   // const editBtn = document.createElement('button')
   const deleteBtn = document.createElement("button");
   deleteBtn.dataset.applicationId = application.id;
@@ -98,7 +74,6 @@ function showApplication(application) {
     });
   });
 
-  
   newRow.append(
     title,
     company,
@@ -114,21 +89,21 @@ function showApplication(application) {
   );
   document.querySelector(".spreadsheet-table").append(newRow);
 }
-function addDropdown(tag){
-    const selectTF = document.createElement('select')
-    const yes = document.createElement('option')
-    yes.classList.add('yes-dropdown')
-    yes.value = 'yes'
-    yes.innerHTML = 'yes'
-    const no = document.createElement('option')
-    no.classList.add('no-dropdown')
+function addDropdown(tag) {
+  const selectTF = document.createElement("select");
+  const yes = document.createElement("option");
+  yes.classList.add("yes-dropdown");
+  yes.value = "yes";
+  yes.innerHTML = "yes";
+  const no = document.createElement("option");
+  no.classList.add("no-dropdown");
 
-    no.value = 'no'
-    no.innerHTML = 'no'
-  
-    selectTF.append(no,yes)
-  
-    tag.append(selectTF)
+  no.value = "no";
+  no.innerHTML = "no";
+
+  selectTF.append(no, yes);
+
+  tag.append(selectTF);
 }
 
 const newApplication = document.querySelector("form");
@@ -170,7 +145,7 @@ const modal = document.getElementById("myModal");
 const btn = document.getElementById("application-btn");
 // Get the <span> element that closes the modal
 const span = document.getElementsByClassName("close")[0];
-const form = document.querySelector("form");
+const form = document.querySelector("#new-application-form");
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
   modal.style.display = "block";
