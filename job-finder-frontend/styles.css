@@ -73,8 +73,11 @@ body {
   padding: 15px;
 }
 
-#application-btn,
-#edit-btn {
+p {
+  font-size: medium;
+}
+
+button {
   background-color: #50c878;
   border-radius: 6px;
   border-style: none;
@@ -89,22 +92,19 @@ body {
   float: left;
   position: relative;
 }
-#application-btn:hover,
-#edit-btn:hover {
+button:hover {
   background-color: white;
   color: #50c878;
   border-style: solid;
   border-color: #50c878;
   border-radius: 6px;
 }
-#application-btn:active,
-#edit-btn:active {
+button:active {
   position: relative;
   top: 1px;
 }
 
-#application-btn:focus,
-#edit-btn:focus {
+button:focus {
   outline: none;
 }
 
@@ -186,5 +186,6 @@ h2 {
 }
 
 .right {
+  padding-top: 4%;
   width: 75%;
 }
