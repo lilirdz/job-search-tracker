@@ -73,9 +73,9 @@ body {
   padding: 15px;
 }
 
-p {
+/* p {
   font-size: medium;
-}
+} */
 
 button {
   background-color: #50c878;
@@ -90,6 +90,7 @@ button {
   padding: 6px 10px;
   text-decoration: none;
   float: left;
+
   position: relative;
 }
 button:hover {
@@ -188,4 +189,23 @@ h2 {
 .right {
   padding-top: 4%;
   width: 75%;
+}
+
+.log-in-button {
+  background-color: #50c878;
+  border-radius: 6px;
+  border-style: none;
+  /* display: inline-block; */
+  cursor: pointer;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+
+p {
+  font-size: small;
+  color: red;
 }
