@@ -24,6 +24,16 @@ class UsersController < ApplicationController
         render json: user
     end 
 
+    def existing_user 
+        user = User.find_by(name: params[:name])
+
+        if user
+            render json: user, include: :applications
+        else
+            render json: {error: 'No user found'}
+        end
+    end
+
     private
 
     def user_params
