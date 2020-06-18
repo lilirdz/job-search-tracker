@@ -4,64 +4,73 @@ function myFetch(url, options = {}) {
   return fetch(url, options).then((res) => res.json());
 }
 
+
+
 function showApplication(application) {
   const newRow = document.createElement("tr");
   // newRow.dataset.applicationId = application.id;
   const title = document.createElement("td");
-  title.contentEditable = "true";
+  // title.contentEditable = "true";
   title.innerHTML = application.title;
   const company = document.createElement("td");
   company.innerHTML = application.company;
-  company.contentEditable = "true";
+  // company.contentEditable = "true";
   // const link = document.createElement("td");
   // link.innerHTML = application.link;
   // link.contentEditable = "true";
   const applied = document.createElement("td");
-  if (application.applied == "true") {
+  // applied.contentEditable = "true";
+  if (application.applied === "true") {
     applied.classList.add("true");
-    applied.innerHTML = "yes";
+    applied.innerHTML = "Yes";
   } else {
     applied.classList.add("false");
-    applied.innerHTML = "no";
+    applied.innerHTML = "No";
   }
   // addDropdown(applied);
   const poc = document.createElement("td");
   poc.innerHTML = application.poc;
-  poc.contentEditable = "true";
+  // poc.contentEditable = "true";
   const date = document.createElement("td");
   date.innerHTML = application.interview_date;
-  date.contentEditable = "true";
+  // date.contentEditable = "true";
   const interviewer = document.createElement("td");
   interviewer.innerHTML = application.interviewer;
-  interviewer.contentEditable = "true";
+  // interviewer.contentEditable = "true";
   const rejected = document.createElement("td");
-  rejected.contentEditable = "true";
+  // rejected.contentEditable = "true";
+
   if (application.rejected == "true") {
     rejected.classList.add("true");
-    rejected.innerHTML = "yes";
+    rejected.innerHTML = "Yes";
   } else {
     rejected.classList.add("false");
-    rejected.innerHTML = "no";
+    rejected.innerHTML = "No";
+  }
+  if (application.applied === "false" && application.rejected === "true") {
+    rejected.classList.add("false");
+    rejected.innerHTML = "No"
   }
   // addDropdown(rejected);
   const received_offer = document.createElement("td");
-  received_offer.contentEditable = "true";
+  // received_offer.contentEditable = "true";
+  // received_offer.innerHTML = application.received_offer
   if (application.received_offer == "true") {
     received_offer.classList.add("true");
-    received_offer.innerHTML = "yes";
+    received_offer.innerHTML = "Yes";
   } else {
     received_offer.classList.add("false");
-    received_offer.innerHTML = "no";
+    received_offer.innerHTML = "No";
   }
   // addDropdown(received_offer);
   const accepted_offer = document.createElement("td");
-  accepted_offer.contentEditable = "true";
+  // accepted_offer.contentEditable = "true";
   if (application.accepted_offer == "true") {
     accepted_offer.classList.add("true");
-    accepted_offer.innerHTML = "yes";
+    accepted_offer.innerHTML = "Yes";
   } else {
     accepted_offer.classList.add("false");
-    accepted_offer.innerHTML = "no";
+    accepted_offer.innerHTML = "No";
   }
   // addDropdown(accepted_offer);
   // const editBtn = document.createElement('button')
@@ -69,18 +78,7 @@ function showApplication(application) {
   deleteBtn.dataset.applicationId = application.id;
   deleteBtn.innerHTML = "🗑️";
   deleteBtn.classList.add("delete-button");
-  deleteBtn.addEventListener("click", (e) => {
-    const applicationId = e.target.dataset.applicationId;
-    const options = {
-      method: "DELETE",
-    };
 
-    myFetch(`${url}/${applicationId}`, options).then((application) => {
-      // e.target.parentNode.remove();
-      e.target.parentNode.classList.add("animation-target");
-      e.target.parentNode.remove();
-    });
-  });
 
   newRow.append(
     title,
@@ -96,6 +94,26 @@ function showApplication(application) {
   );
   document.querySelector(".spreadsheet-table").append(newRow);
 }
+
+const spreadsheetDiv = document.querySelector(".spreadsheet-div")
+spreadsheetDiv.addEventListener("click", (e) => {
+  const applicationId = e.target.dataset.applicationId;
+
+  if (applicationId) {
+    const options = {
+      method: "DELETE",
+    };
+
+    myFetch(`${url}/${applicationId}`, options).then(() => {
+      e.target.parentNode.classList.add("animation-target");
+      e.target.parentNode.remove();
+    });
+  }
+
+});
+
+
+
 function addDropdown(tag) {
   const selectTF = document.createElement("select");
   const yes = document.createElement("option");
@@ -119,7 +137,7 @@ function NewAppForm(user) {
     e.preventDefault();
     const jobTitle = document.querySelector("#job-title").value;
     const company = document.querySelector("#company").value;
-    const applicationLink = document.querySelector("#application-link").value;
+    // const applicationLink = document.querySelector("#application-link").value;
     const poc = document.querySelector("#poc").value;
     const interviewDate = document.querySelector("#interview-date").value;
     const interviewer = document.querySelector("#interviewer").value;
@@ -134,7 +152,7 @@ function NewAppForm(user) {
         user_id: user.id,
         title: jobTitle,
         company: company,
-        link: applicationLink,
+        // link: applicationLink,
         poc: poc,
         interview_date: interviewDate,
         interviewer: interviewer,
@@ -144,7 +162,9 @@ function NewAppForm(user) {
     myFetch(url, postOptions).then((application) => {
       showApplication(application);
       const removeNoAppsText = document.querySelector(".no-apps");
-      removeNoAppsText.innerHTML = "";
+      if (removeNoAppsText) {
+        removeNoAppsText.innerHTML = "";
+      }
       newApplication.reset();
     });
   });
@@ -162,12 +182,12 @@ function addApplicationBtn() {
   const form = document.querySelector("#new-application-form");
 
   newAppBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     modal.style.display = "block";
   });
 
   span.addEventListener("click", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     modal.style.display = "none";
   });
 
