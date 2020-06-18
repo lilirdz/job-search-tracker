@@ -11,18 +11,18 @@ require 'faker'
 User.destroy_all
 Application.destroy_all
 
-User.create(name: "Bob", status: "actively seeking")
+User.create(name: "Bob", status: "Actively Seeking")
 
-20.times do 
+12.times do 
      title = Faker::Job.title
      company = Faker::Company.name
      link = ''
-     applied = true
+     applied = ["true","false"]
      poc = Faker::Name.name
      interview_date = ''
      interviewer = Faker::Name.name
-     rejected = false
-     received_offer = false
-     accepted_offer = false
-     Application.create(title: title, company: company, link: link, applied: applied,poc: poc,interview_date: interview_date, interviewer: interviewer,rejected: rejected,received_offer: received_offer,accepted_offer: accepted_offer, user_id: User.first.id)
+     rejected = ["false","true"]
+     received_offer = "false"
+     accepted_offer = "false"
+     Application.create(title: title, company: company, link: link, applied: applied.sample,poc: poc,interview_date: interview_date, interviewer: interviewer,rejected: rejected.sample,received_offer: received_offer,accepted_offer: accepted_offer, user_id: User.first.id)
 end
