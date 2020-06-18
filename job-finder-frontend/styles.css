@@ -17,6 +17,7 @@ img {
   /* background-color: #d9534f; */
   /* background-color: #ff5252; */
   background-color: #ef7371;
+  border: none;
 }
 @keyframes pop {
   50% {
@@ -51,11 +52,13 @@ td {
   margin: 5px;
 }
 table {
-  background-color: #afdff0;
+  /* background-color: #afdff0; */
+  background-color: #f9f8ff;
   box-shadow: 0px 4px 10px rgba(25, 4, 69, 0.4);
 }
 table .header-row {
-  background-color: #013241;
+  /* background-color: #013241; */
+  background-color: #04b2d9;
   color: #f2f2f2;
 }
 .flatiron-logo {
@@ -69,8 +72,9 @@ body {
 }
 
 .page-banner {
-  float: left;
+  /* float: left; */
   padding: 15px;
+  display: block;
 }
 
 /* p {
@@ -90,7 +94,6 @@ button {
   padding: 6px 10px;
   text-decoration: none;
   float: left;
-
   position: relative;
 }
 button:hover {
@@ -160,7 +163,7 @@ h2 {
   padding: 20px;
   border: 1px solid #888;
   width: 60%; /* Could be more or less, depending on screen size */
-  height: 70%;
+  height: 50%;
 }
 
 /* The Close Button */
@@ -184,10 +187,11 @@ h2 {
 
 .left {
   width: 25%;
+  text-align: center;
 }
 
 .right {
-  padding-top: 4%;
+  padding-top: 3%;
   width: 75%;
 }
 
@@ -203,9 +207,24 @@ h2 {
   font-weight: bold;
   padding: 6px 10px;
   text-decoration: none;
+  float: right;
 }
 
 p {
   font-size: small;
   color: red;
+}
+
+#status {
+  color: #04b2d9;
+  font-size: large;
+}
+
+.log-in-options {
+  display: flexbox;
+  text-align: center;
+}
+
+.submit-button {
+  align-self: center;
 }
