@@ -10,16 +10,16 @@ function showApplication(application) {
   const newRow = document.createElement("tr");
   // newRow.dataset.applicationId = application.id;
   const title = document.createElement("td");
-  // title.contentEditable = "true";
+  title.contentEditable = "true";
   title.innerHTML = application.title;
   const company = document.createElement("td");
   company.innerHTML = application.company;
-  // company.contentEditable = "true";
+  company.contentEditable = "true";
   // const link = document.createElement("td");
   // link.innerHTML = application.link;
   // link.contentEditable = "true";
   const applied = document.createElement("td");
-  // applied.contentEditable = "true";
+  applied.contentEditable = "true";
   if (application.applied === "true") {
     applied.classList.add("true");
     applied.innerHTML = "Yes";
@@ -30,15 +30,15 @@ function showApplication(application) {
   // addDropdown(applied);
   const poc = document.createElement("td");
   poc.innerHTML = application.poc;
-  // poc.contentEditable = "true";
+  poc.contentEditable = "true";
   const date = document.createElement("td");
   date.innerHTML = application.interview_date;
-  // date.contentEditable = "true";
+  date.contentEditable = "true";
   const interviewer = document.createElement("td");
   interviewer.innerHTML = application.interviewer;
-  // interviewer.contentEditable = "true";
+  interviewer.contentEditable = "true";
   const rejected = document.createElement("td");
-  // rejected.contentEditable = "true";
+  rejected.contentEditable = "true";
 
   if (application.rejected == "true") {
     rejected.classList.add("true");
@@ -53,7 +53,7 @@ function showApplication(application) {
   }
   // addDropdown(rejected);
   const received_offer = document.createElement("td");
-  // received_offer.contentEditable = "true";
+  received_offer.contentEditable = "true";
   // received_offer.innerHTML = application.received_offer
   if (application.received_offer == "true") {
     received_offer.classList.add("true");
@@ -64,7 +64,7 @@ function showApplication(application) {
   }
   // addDropdown(received_offer);
   const accepted_offer = document.createElement("td");
-  // accepted_offer.contentEditable = "true";
+  accepted_offer.contentEditable = "true";
   if (application.accepted_offer == "true") {
     accepted_offer.classList.add("true");
     accepted_offer.innerHTML = "Yes";
@@ -182,12 +182,12 @@ function addApplicationBtn() {
   const form = document.querySelector("#new-application-form");
 
   newAppBtn.addEventListener("click", (e) => {
-    // e.preventDefault();
+
     modal.style.display = "block";
   });
 
   span.addEventListener("click", (e) => {
-    // e.preventDefault();
+
     modal.style.display = "none";
   });
 

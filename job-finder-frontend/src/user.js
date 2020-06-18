@@ -53,12 +53,12 @@ function showUser(user) {
   const userForm = document.querySelector("#edit-user-form");
 
   editBtn.addEventListener("click", (e) => {
-    // e.preventDefault();
+
     userModal.style.display = "block";
   });
 
   userSpan.addEventListener("click", (e) => {
-    // e.preventDefault();
+
     userModal.style.display = "none";
   });
 
