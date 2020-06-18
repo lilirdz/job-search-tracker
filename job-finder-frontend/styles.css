@@ -34,10 +34,12 @@ select .yes-dropdown {
 select .no-dropdown {
 }
 .true {
-  background-color: #50c878;
+  background-color: #04b2d9;
+  color: white;
 }
 .false {
   background-color: #515259;
+  color: white;
 }
 table,
 td {
@@ -76,10 +78,6 @@ body {
   padding: 15px;
   display: block;
 }
-
-/* p {
-  font-size: medium;
-} */
 
 button {
   background-color: #50c878;

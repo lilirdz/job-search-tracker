@@ -104,10 +104,43 @@ function showUser(user) {
   });
   addApplicationBtn();
   NewAppForm(user);
-
+  // filterApplications();
   const spacing = document.createElement("br");
   const pageBanner = document.querySelector(".page-banner");
   pageBanner.append(spacing, editBtn);
+}
+
+function filterApplications() {
+  // const filterLabel = document.createElement("label");
+  // filterLabel.setAttribute("for", "select-columns-to-filter");
+  // filterLabel.innerHTML = "Filter by:";
+  // const filterDropdown = document.createElement("select");
+  // filterDropdown.setAttribute("name", "select-columns-to-filter");
+  // const if_applied = document.createElement("option");
+  // if_applied.classList.add("if-applied-option");
+  // if_applied.value = "true";
+  // if_applied.innerHTML = "already applied";
+  // filterDropdown
+  const filterByApplied = document.createElement("button");
+  filterByApplied.innerHTML = "Show applied only";
+  filterByApplied.addEventListener("click", (e) => {
+    displayApplications();
+  });
+  // filterDropdown.append(filterLabel, if_applied);
+  const pageBanner = document.querySelector(".page-banner");
+  pageBanner.append(filterByApplied);
+}
+
+function displayApplications() {
+  myFetch(url).then((applications) => {
+    console.log(applications);
+    for (const application of applications) {
+      document.querySelector(".spreadsheet-table").innerHTML = "";
+      if (application.applied == "true") {
+        showApplication(application);
+      }
+    }
+  });
 }
 
 function showLogInButton() {

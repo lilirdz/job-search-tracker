@@ -17,12 +17,14 @@ function showApplication(application) {
   // link.innerHTML = application.link;
   // link.contentEditable = "true";
   const applied = document.createElement("td");
-  if (application.applied == true) {
+  if (application.applied == "true") {
     applied.classList.add("true");
+    applied.innerHTML = "yes";
   } else {
     applied.classList.add("false");
+    applied.innerHTML = "no";
   }
-  addDropdown(applied);
+  // addDropdown(applied);
   const poc = document.createElement("td");
   poc.innerHTML = application.poc;
   poc.contentEditable = "true";
@@ -34,28 +36,34 @@ function showApplication(application) {
   interviewer.contentEditable = "true";
   const rejected = document.createElement("td");
   rejected.contentEditable = "true";
-  if (application.rejected == true) {
+  if (application.rejected == "true") {
     rejected.classList.add("true");
+    rejected.innerHTML = "yes";
   } else {
     rejected.classList.add("false");
+    rejected.innerHTML = "no";
   }
-  addDropdown(rejected);
+  // addDropdown(rejected);
   const received_offer = document.createElement("td");
   received_offer.contentEditable = "true";
-  if (application.received_offer == true) {
+  if (application.received_offer == "true") {
     received_offer.classList.add("true");
+    received_offer.innerHTML = "yes";
   } else {
     received_offer.classList.add("false");
+    received_offer.innerHTML = "no";
   }
-  addDropdown(received_offer);
+  // addDropdown(received_offer);
   const accepted_offer = document.createElement("td");
   accepted_offer.contentEditable = "true";
-  if (application.accepted_offer == true) {
+  if (application.accepted_offer == "true") {
     accepted_offer.classList.add("true");
+    accepted_offer.innerHTML = "yes";
   } else {
     accepted_offer.classList.add("false");
+    accepted_offer.innerHTML = "no";
   }
-  addDropdown(accepted_offer);
+  // addDropdown(accepted_offer);
   // const editBtn = document.createElement('button')
   const deleteBtn = document.createElement("button");
   deleteBtn.dataset.applicationId = application.id;
@@ -77,7 +85,6 @@ function showApplication(application) {
   newRow.append(
     title,
     company,
-
     applied,
     poc,
     date,
