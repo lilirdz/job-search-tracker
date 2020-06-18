@@ -53,12 +53,12 @@ function showUser(user) {
   const userForm = document.querySelector("#edit-user-form");
 
   editBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     userModal.style.display = "block";
   });
 
   userSpan.addEventListener("click", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     userModal.style.display = "none";
   });
 
@@ -110,38 +110,60 @@ function showUser(user) {
   pageBanner.append(spacing, editBtn);
 }
 
-function filterApplications() {
-  // const filterLabel = document.createElement("label");
-  // filterLabel.setAttribute("for", "select-columns-to-filter");
-  // filterLabel.innerHTML = "Filter by:";
-  // const filterDropdown = document.createElement("select");
-  // filterDropdown.setAttribute("name", "select-columns-to-filter");
-  // const if_applied = document.createElement("option");
-  // if_applied.classList.add("if-applied-option");
-  // if_applied.value = "true";
-  // if_applied.innerHTML = "already applied";
-  // filterDropdown
-  const filterByApplied = document.createElement("button");
-  filterByApplied.innerHTML = "Show applied only";
-  filterByApplied.addEventListener("click", (e) => {
-    displayApplications();
-  });
-  // filterDropdown.append(filterLabel, if_applied);
-  const pageBanner = document.querySelector(".page-banner");
-  pageBanner.append(filterByApplied);
-}
+// function filterApplications() {
+//   // const filterLabel = document.createElement("label");
+//   // filterLabel.setAttribute("for", "select-columns-to-filter");
+//   // filterLabel.innerHTML = "Filter by:";
+//   // const filterDropdown = document.createElement("select");
+//   // filterDropdown.setAttribute("name", "select-columns-to-filter");
+//   // const if_applied = document.createElement("option");
+//   // if_applied.classList.add("if-applied-option");
+//   // if_applied.value = "true";
+//   // if_applied.innerHTML = "already applied";
+//   // filterDropdown
+//   const filterByApplied = document.createElement("button");
+//   filterByApplied.innerHTML = "Show applied only";
+//   filterByApplied.addEventListener("click", (e) => {
+//     displayApplications();
+//   });
+//   // filterDropdown.append(filterLabel, if_applied);
+//   const pageBanner = document.querySelector(".page-banner");
+//   pageBanner.append(filterByApplied);
+// }
 
-function displayApplications() {
-  myFetch(url).then((applications) => {
-    console.log(applications);
-    for (const application of applications) {
-      document.querySelector(".spreadsheet-table").innerHTML = "";
-      if (application.applied == "true") {
-        showApplication(application);
-      }
-    }
-  });
-}
+// function displayApplications() {
+//   myFetch(url).then((applications) => {
+//     console.log(applications);
+//     for (const application of applications) {
+//       document.querySelector(".spreadsheet-table").innerHTML = "";
+//       recreateTable();
+//       if (application.applied === "true") {
+//         showApplication(application);
+//       }
+//     }
+//   });
+// }
+
+// function recreateTable() {
+//   // <tr class="header-row">
+//   // <th>Job Title</th>
+//   // <th>Company</th>
+//   // <!-- <th>Application Link</th> -->
+//   // <th>Applied?</th>
+//   // <th>Person Of Contact</th>
+//   // <th>Interview Date</th>
+//   // <th>Interviewer</th>
+//   // <th>Rejected?</th>
+//   // <th>Received Offer?</th>
+//   // <th>Accepted Offer?</th>
+//   // <th></th>
+
+//   const table = document.createElement("table");
+//   table.classList.add("spreadsheet-table");
+//   const tr = document.createElement("tr");
+//   tr.classList.add('header-row')
+//   const jobTitleHeader = document.createElement("th");
+// }
 
 function showLogInButton() {
   const logInButton = document.createElement("button");
@@ -171,8 +193,6 @@ function pleaseEnterName() {
 }
 
 function logMeIn() {
-  const username = document.querySelector("#username");
-  const status = document.querySelector("#status");
   const findName = document.querySelector(".entered-name").value;
   const options = {
     method: "POST",
@@ -206,12 +226,14 @@ function logMeIn() {
     }
   });
 }
+
 function createNameInputDirections() {
   const enterNameLabel = document.createElement("h4");
   enterNameLabel.innerHTML = "Enter your name to pull up your information.";
   // enterNameLabel.setAttribute("for", "username");
   return enterNameLabel;
 }
+
 function createNameInputField() {
   const typeInName = document.createElement("input");
   typeInName.classList.add("entered-name");

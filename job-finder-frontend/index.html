@@ -1,119 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <title>Flatiron Job Search Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <script defer src="./src/index.js"></script>
-    <script defer src="./src/user.js"></script>
-  </head>
-  <body>
-    <header></header>
 
-    <main>
-      <div class="row">
-        <div class="column left">
-          <div class="page-banner">
-            <img
-              class="flatiron-logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/6/61/FS_wiki.png"
-            />
-            <h2>Job Search Tracker</h2>
-            <div class="log-in-options"></div>
+<head>
+  <meta charset="utf-8" />
+  <title>Flatiron Job Search Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script defer src="./src/index.js"></script>
+  <script defer src="./src/user.js"></script>
+</head>
 
-            <h3 id="username"></h3>
-            <h4 id="status"></h4>
-            <!-- <button id="application-btn">New Job Application</button> -->
-            <div id="myModal" class="modal">
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <h4>Add a new job application to your job search tracker</h4>
-                <form id="new-application-form">
-                  <input
-                    type="text"
-                    id="job-title"
-                    placeholder="Job Title *"
-                  /><br />
-                  <input
-                    type="text"
-                    id="company"
-                    placeholder="Company *"
-                  /><br />
-                  <input
+<body>
+  <header></header>
+
+  <main>
+    <div class="row">
+      <div class="column left">
+        <div class="page-banner">
+          <img class="flatiron-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/61/FS_wiki.png" />
+          <h2>Job Search Tracker</h2>
+          <div class="log-in-options"></div>
+
+          <h3 id="username"></h3>
+          <h4 id="status"></h4>
+          <!-- <button id="application-btn">New Job Application</button> -->
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h4>Add a new job application to your job search tracker</h4>
+              <form id="new-application-form">
+                <input type="text" id="job-title" placeholder="Job Title *" /><br />
+                <input type="text" id="company" placeholder="Company *" /><br />
+                <!-- <input
                     type="text"
                     id="application-link"
                     placeholder="Application link"
-                  /><br />
-                  <input
-                    type="text"
-                    id="poc"
-                    placeholder="Point of Contact"
-                  /><br />
-                  <input
-                    type="datetime-local"
-                    id="interview-date"
-                    placeholder="Interview Date"
-                  /><br />
-                  <input
-                    type="text"
-                    id="interviewer"
-                    placeholder="Interviewer"
-                  /><br />
-                  <input type="submit" placeholder="Submit" />
-                </form>
-              </div>
+                  /><br /> -->
+                <input type="text" id="poc" placeholder="Point of Contact" /><br />
+                <input type="date" id="interview-date" placeholder="Interview Date" /><br />
+                <input type="text" id="interviewer" placeholder="Interviewer" /><br />
+                <input type="submit" placeholder="Submit" />
+              </form>
             </div>
-            <!-- <br /><br /> -->
-            <!-- <button id="edit-btn">Edit Your Profile</button> -->
-            <br />
-            <div id="userModal" class="modal">
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <h4>Update your Info Here</h4>
-                <form id="edit-user-form">
-                  <input
-                    type="text"
-                    id="user-name-change"
-                    placeholder="Name"
-                  /><br />
-                  <input
-                    type="text"
-                    id="user-status-change"
-                    placeholder="Status"
-                  /><br />
-                  <br />
-                  <input type="submit" placeholder="Submit" />
-                </form>
-              </div>
+          </div>
+          <!-- <br /><br /> -->
+          <!-- <button id="edit-btn">Edit Your Profile</button> -->
+          <br />
+          <div id="userModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h4>Update your Info Here</h4>
+              <form id="edit-user-form">
+                <input type="text" id="user-name-change" placeholder="Name" /><br />
+                <input type="text" id="user-status-change" placeholder="Status" /><br />
+                <br />
+                <input type="submit" placeholder="Submit" />
+              </form>
             </div>
           </div>
         </div>
-        <!-- Add our HTML -->
-        <div class="column right">
-          <div class="spreadsheet-div">
-            <table class="spreadsheet-table">
-              <tr class="header-row">
-                <th>Job Title</th>
-                <th>Company</th>
-                <!-- <th>Application Link</th> -->
-                <th>Applied?</th>
-                <th>Person Of Contact</th>
-                <th>Interview Date</th>
-                <th>Interviewer</th>
-                <th>Rejected?</th>
-                <th>Received Offer?</th>
-                <th>Accepted Offer?</th>
-                <th></th>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <!-- row div -->
       </div>
-    </main>
-  </body>
+      <!-- Add our HTML -->
+      <div class="column right">
+        <div class="spreadsheet-div">
+          <table class="spreadsheet-table">
+            <tr class="header-row">
+              <th>Job Title</th>
+              <th>Company</th>
+              <!-- <th>Application Link</th> -->
+              <th>Applied?</th>
+              <th>Person Of Contact</th>
+              <th>Interview Date</th>
+              <th>Interviewer</th>
+              <th>Rejected?</th>
+              <th>Received Offer?</th>
+              <th>Accepted Offer?</th>
+              <th></th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- row div -->
+    </div>
+  </main>
+</body>
+
 </html>
