@@ -17,7 +17,7 @@ User.create(name: "Bob", status: "actively seeking")
      title = Faker::Job.title
      company = Faker::Company.name
      link = ''
-     applied = false
+     applied = true
      poc = Faker::Name.name
      interview_date = ''
      interviewer = Faker::Name.name

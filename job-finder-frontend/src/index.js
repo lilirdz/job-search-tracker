@@ -13,9 +13,9 @@ function showApplication(application) {
   const company = document.createElement("td");
   company.innerHTML = application.company;
   company.contentEditable = "true";
-  const link = document.createElement("td");
-  link.innerHTML = application.link;
-  link.contentEditable = "true";
+  // const link = document.createElement("td");
+  // link.innerHTML = application.link;
+  // link.contentEditable = "true";
   const applied = document.createElement("td");
   if (application.applied == true) {
     applied.classList.add("true");
@@ -77,7 +77,7 @@ function showApplication(application) {
   newRow.append(
     title,
     company,
-    link,
+
     applied,
     poc,
     date,
@@ -106,61 +106,75 @@ function addDropdown(tag) {
   tag.append(selectTF);
 }
 
-const newApplication = document.querySelector("form");
-newApplication.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const jobTitle = document.querySelector("#job-title").value;
-  const company = document.querySelector("#company").value;
-  const applicationLink = document.querySelector("#application-link").value;
-  const poc = document.querySelector("#poc").value;
-  const interviewDate = document.querySelector("#interview-date").value;
-  const interviewer = document.querySelector("#interviewer").value;
+function NewAppForm(user) {
+  const newApplication = document.querySelector("#new-application-form");
+  newApplication.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const jobTitle = document.querySelector("#job-title").value;
+    const company = document.querySelector("#company").value;
+    const applicationLink = document.querySelector("#application-link").value;
+    const poc = document.querySelector("#poc").value;
+    const interviewDate = document.querySelector("#interview-date").value;
+    const interviewer = document.querySelector("#interviewer").value;
 
-  postOptions = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      user_id: 1,
-      title: jobTitle,
-      company: company,
-      link: applicationLink,
-      poc: poc,
-      interview_date: interviewDate,
-      interviewer: interviewer,
-    }),
-  };
+    postOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user.id,
+        title: jobTitle,
+        company: company,
+        link: applicationLink,
+        poc: poc,
+        interview_date: interviewDate,
+        interviewer: interviewer,
+      }),
+    };
 
-  myFetch(url, postOptions).then((application) => {
-    showApplication(application);
-    newApplication.reset();
+    myFetch(url, postOptions).then((application) => {
+      showApplication(application);
+      const removeNoAppsText = document.querySelector(".no-apps");
+      removeNoAppsText.innerHTML = "";
+      newApplication.reset();
+    });
   });
-});
+}
 
-// Get the modal
-const modal = document.getElementById("myModal");
-// Get the button that opens the modal
-const btn = document.getElementById("application-btn");
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-const form = document.querySelector("#new-application-form");
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
-  modal.style.display = "block";
-};
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
-};
+function addApplicationBtn() {
+  const newAppBtn = document.createElement("button");
+  newAppBtn.setAttribute("id", "application-btn");
+  newAppBtn.textContent = "New Job Application";
 
-form.onsubmit = function () {
-  modal.style.display = "none";
-};
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
+  const spacing = document.createElement("br");
+
+  const modal = document.querySelector("#myModal");
+  const span = document.querySelector("#myModal .close");
+  const form = document.querySelector("#new-application-form");
+
+  newAppBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.style.display = "block";
+  });
+
+  span.addEventListener("click", (e) => {
+    e.preventDefault();
     modal.style.display = "none";
-  }
-};
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", () => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  const pageBanner = document.querySelector(".page-banner");
+  pageBanner.append(newAppBtn, spacing);
+}
